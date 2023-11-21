@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-deployment
+  template:
+    metadata:
+      labels:
+        app: my-deployment
+    spec:
+      containers:
+        - name: my-app-container
+          image: ausaf009/nodejs-app-image:main-a1a49a886d218c17bfb4fb132eaff5f858b95c92
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4000
